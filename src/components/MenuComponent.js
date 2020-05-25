@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Jumbotron } from 'reactstrap';
+import PlaygroundApp from './playground/PlaygroundApp'
 
 class Menu extends Component {
 
@@ -52,6 +53,9 @@ class Menu extends Component {
 
         return (
             <div className="container">
+                <Jumbotron fluid>
+                    <PlaygroundApp  />
+                </Jumbotron>
                 <div className="row">
                     {menu}
                 </div>
