@@ -1,10 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
+import { DISHES } from './shared/dishes'
 import Menu from './components/MenuComponent';
 
+
 function App() {
+
+  const [dishes, setDishes] = useState(DISHES);
+
   return (
     <div >
       <Navbar dark color="primary">
@@ -12,7 +16,7 @@ function App() {
           <NavbarBrand href="/">Ristorent Cold fusionyar</NavbarBrand>
         </div>
       </Navbar>
-      <Menu />
+      <Menu dishes={dishes} />
     </div>
   );
 }
