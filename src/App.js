@@ -13,7 +13,7 @@ function App() {
     <div >
       <Navbar dark color="primary">
         <div className=".container">
-          <NavbarBrand href="/">Ristorent Cold fusionyar</NavbarBrand>
+          <NavbarBrand href="/">in DELHI NCR -- Indian Tadka </NavbarBrand>
         </div>
       </Navbar>
       <Menu dishes={dishes} />
