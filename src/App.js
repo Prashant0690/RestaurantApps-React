@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+// import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import { DISHES } from './shared/dishes'
-import Menu from './components/MenuComponent';
-
+import Main from './components/MainComponent';
 
 function App() {
 
-  const [dishes, setDishes] = useState(DISHES);
+  // const [dishes, setDishes] = useState(DISHES);
 
   return (
     <div >
-      <Navbar dark color="primary">
-        <div className=".container">
-          <NavbarBrand href="/">in DELHI NCR -- Indian Tadka </NavbarBrand>
-        </div>
-      </Navbar>
-      <Menu dishes={dishes} />
+      <Main />
     </div>
   );
 }
