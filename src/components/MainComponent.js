@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
-
 import { DISHES } from '../shared/dishes'
 import Menu from '../components/MenuComponent';
 import DishdetailComponent from '../components/DishdetailComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 
 
 
@@ -14,13 +14,10 @@ function Main() {
 
     return (
         <div >
-            <Navbar dark color="primary">
-                <div className=".container">
-                    <NavbarBrand href="/">in DELHI NCR -- Indian Tadka </NavbarBrand>
-                </div>
-            </Navbar>
+            <Header />
             <Menu dishes={DISHES} onDishSelect={onDishSelect}/>
             <DishdetailComponent selectedDish = {DISHES.filter( (dish) => dish.id === selectedDishId)[0]}/>
+            <Footer />
         </div>
     );
 }
