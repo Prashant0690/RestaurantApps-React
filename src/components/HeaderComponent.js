@@ -1,13 +1,45 @@
-import React from 'react';
-import { Navbar, NavbarBrand, Jumbotron } from 'reactstrap';
+import React, {useState} from 'react';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { NavLink } from 'react-router-dom'
 
 function Header() {
 
+    const [isCollapseOpen , setIsCollapseOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsCollapseOpen(!isCollapseOpen);
+    }
+
     return (
         <React.Fragment>
-            <Navbar dark >
+            <Navbar dark expand="md">
                 <div className="container">
+                    <NavbarToggler onClick={() => toggleNav()} />
                     <NavbarBrand href="/">The Indian Cooking Tadka </NavbarBrand>
+                    <Collapse isOpen={isCollapseOpen} navbar>
+                        <Nav navbar>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/home" >
+                                    <span className="fa fa-home fa-lg"></span> Home
+                        </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/aboutus" >
+                                    <span className="fa fa-info fa-lg"></span> About Us
+                        </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/menu" >
+                                    <span className="fa fa-list fa-lg"></span> menu
+                        </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/contactus" >
+                                    <span className="fa fa-address-card fa-lg"></span> Contact Us
+                        </NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
                 </div>
             </Navbar>
             <Jumbotron>
