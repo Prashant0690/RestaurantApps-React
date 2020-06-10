@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DISHES } from '../shared/dishes';
 import { COMMENTS  } from '../shared/comments';
 import { LEADERS } from '../shared/leaders';
@@ -10,13 +10,23 @@ import Header from './HeaderComponent';
 import Contact from './ContactComponent'
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect} from 'react-router-dom';
 
+
+const DishWithId = ({match}) => {
+    // let { dishId } = useParams();
+    console.log(match.params.dishId);
+    return (
+        <DishdetailComponent dish = {DISHES.filter( (dish)=> dish.id === parseInt(match.params.dishId,10))[0]} 
+            comments = {COMMENTS.filter( (comment)=> comment.dishId === parseInt(match.params.dishId,10) )}/>
+    );
+}
 
 function Main() {
 
     //const [dishes, setDishes] = useState(DISHES);  // TODO: Use when we have to update dishes
-    const [selectedDishId, onDishSelect] = useState(null)
+    // const [selectedDishId, onDishSelect] = useState(null);
+   
 
     return (
         <div >
@@ -30,8 +40,11 @@ function Main() {
                         promotion = {PROMOTIONS.filter((promo)=> promo.featured)[0]} 
                         leader = {LEADERS.filter((leader)=> leader.featured)[0]} />
                 </Route>
-                <Route path="/menu">
+                <Route exact path="/menu">
                     <Menu dishes={DISHES}  />
+                </Route>
+                <Route path="/menu/:dishId" component={DishWithId}>
+                    {/* <DishWithId /> */}
                 </Route>
                 <Route path="/contactus">
                     <Contact />
