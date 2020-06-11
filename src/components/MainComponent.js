@@ -10,6 +10,7 @@ import Header from './HeaderComponent';
 import Contact from './ContactComponent'
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
+import About from './AboutComponent'
 import { Switch, Route, Redirect} from 'react-router-dom';
 
 
@@ -48,6 +49,9 @@ function Main() {
                 </Route>
                 <Route path="/contactus">
                     <Contact />
+                </Route>
+                <Route path="/aboutus">
+                    <About leaders = {LEADERS}/>
                 </Route>
                 <Redirect to="/home" />
 
